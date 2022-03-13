@@ -2,9 +2,8 @@ from ex16a_mya_person import Person
 
 class Customer(Person):
 
-    def __init__(self, name, gender, preferred_pronoun, email, contact_no, address):
-        super().__init__(name, gender, preferred_pronoun)
-        self._email_add = email
+    def __init__(self, name, gender, preferred_pronoun, email, address):
+        super().__init__(name, gender, preferred_pronoun, email, contact_no)
         self._contact_number = contact_no
         self._customer_address = address
 

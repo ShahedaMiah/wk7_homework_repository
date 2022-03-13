@@ -6,3 +6,4 @@ class InsufficientFundsException(Saving_Account):
         super().__init__(initial, interest_rate)
 
     def check_if_in_credit(self):
+        self._check_if_in_credit = self.__balance + d
