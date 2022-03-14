@@ -1,24 +1,21 @@
 import sys
-
 from savings_account import Saving_Account
-from accounts import Account
-from account_exception import ZeroCreditError
+#from account_exception import InsufficientFundsException
 
-def enough_money(*arguments):
-    if Account.withdraw() > Account.getbalance():
-        raise ZeroCreditError.in_credit()
 
-def current_account(Saving_Account):
-    try:
-        acc1 = Saving_Account(4000, 2.5),
-        acc1.set_holder_name("Charlotte Abbotts")
-        acc1.deposit(10000)
-        acc1.withdraw(20000)
-        #enough_money()
-    except ZeroCreditError.in_credit() as error:
-        print("Oops: ", error, file=sys.stderr)
-    finally:
-        print(acc1, '\n', acc1.numCreated)
+try:
+    charlotte = Saving_Account(4000, 2.5)
+    # charlotte.set_holder_name("Charlotte Abbotts")
+    # charlotte.deposit(10000)
+    charlotte.withdraw(20000)
 
-print(current_accountig)
+    mya = Saving_Account(3000, 2.5)
+    # mya.set_holder_name("Mya Miah")
+    # mya.deposit(12000)
+    mya.withdraw(2000)
+except InsufficientFundsException.if_in_credit(Saving_Account.withdraw) as error:
+    print("Oops: ", error, file=sys.stderr)
+finally:
+    print(charlotte, '\n', mya, '\nNumber of Accounts Created: ', Saving_Account.numCreated)
 
+#print(charlotte, '\n', mya)

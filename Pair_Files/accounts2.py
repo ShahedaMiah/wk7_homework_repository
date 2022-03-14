@@ -1,3 +1,5 @@
+from account_exception2 import InsufficientFundsException
+
 class Account:
     numCreated = 0
     def __init__(self, initial):
@@ -13,7 +15,8 @@ class Account:
         # self._balance = self._balance - amount
         self.amount = amount
         if self.amount > self.__balance:
-            print("Error: Insufficient funds available, cannot process withdrawal. You have £{} in your account".format(self.__balance))
+            raise InsufficientFundsException('-')
+        return "You have £" + str(self._balance)
         else:
             self.__balance = self.__balance - amount
 
@@ -41,3 +44,11 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+# print(help(Person))
+# print(help(Employee))
+# print(help(Customer))
+
+# check for class inheritance
+# print(issubclass(Employee, Person))     #True
+# print(issubclass(Customer, Person))     #True

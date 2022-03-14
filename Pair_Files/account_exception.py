@@ -1,12 +1,22 @@
 from savings_account import Saving_Account
 from accounts import Account
 
-class ZeroCreditError(Exception):
-    #pass
+class InsufficientFundsException(Account):
 
-    def in_credit(self):
-        if Account.withdraw() >= Account.getbalance():
-            #Account.withdraw
-            return "you are in credit"
+    def __init__(self, initial, payment):
+        super().__init__(initial)
+        self._payment = payment
+
+    def if_in_credit(self, amount):
+        self.amount = amount
+        if self.amount > self._balance:
+            print("Error: Insufficient funds available, cannot process withdrawal")
         else:
-            return "insufficient funds available"
+            self._balance = self._balance - self.amount
+
+# acc = InsufficientFundsException(1000, 5)
+# acc.set_holder_name("Charlotte Abbotts")
+# acc.deposit(500)
+# acc.if_in_credit(400)
+#
+# print(acc)
